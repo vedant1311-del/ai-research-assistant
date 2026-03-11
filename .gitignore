@@ -1,0 +1,4 @@
+.env
+research_db/
+__pycache__/
+*.pyc
