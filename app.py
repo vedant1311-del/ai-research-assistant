@@ -22,7 +22,7 @@ db = FAISS.load_local("research_db", embeddings, allow_dangerous_deserialization
 retriever = db.as_retriever(search_kwargs={"k": 2})
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash-lite",
+    model="gemini-2.5-flash-lite",
     google_api_key=os.getenv("GOOGLE_API_KEY"),
     max_output_tokens=300  # limit response size
 )
