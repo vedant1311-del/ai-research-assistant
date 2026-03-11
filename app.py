@@ -37,7 +37,7 @@ def build_vector_store(text):
         google_api_key=GOOGLE_API_KEY
     )
 
-    batch_size = 10
+    batch_size = 5
     db = None
 
     progress = st.progress(0, text="Building knowledge base...")
@@ -54,7 +54,7 @@ def build_vector_store(text):
         progress.progress(batch_num / total_batches, text=f"Processing chunks... ({min(i + batch_size, len(chunks))}/{len(chunks)})")
 
         if i + batch_size < len(chunks):
-            time.sleep(10)
+            time.sleep(30)  # increased to 30 seconds to respect free tier limits
 
     progress.empty()
     return db
